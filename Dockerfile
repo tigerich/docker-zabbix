@@ -39,7 +39,6 @@ RUN yum -y -q install \
 
 # Install Apache and PHP5 with ldap support
 RUN yum -y -q install \
-              httpd \
               php \
               php-mysql \
               php-snmp  \
