@@ -10,7 +10,7 @@ RUN rpm -ivh http://repo.zabbix.com/zabbix/3.0/rhel/7/x86_64/zabbix-release-3.0-
 
 # Install Zabbix release packages.
 #RUN yum install -y http://repo.zabbix.com/zabbix/2.4/rhel/6/x86_64/zabbix-release-2.4-1.el6.noarch.rpm
-#RUN yum install zabbix-server-mysql zabbix-web-mysql zabbix-agent
+RUN yum -y install http://repo.zabbix.com/zabbix/3.0/rhel/7/x86_64/zabbix-release-3.0-1.el7.noarch.rpm
 
 # Refresh
 RUN yum makecache
