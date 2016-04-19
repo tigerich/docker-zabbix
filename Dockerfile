@@ -5,9 +5,13 @@ MAINTAINER Bernardo Gomez Palacio <bernardo.gomezpalacio@gmail.com>
 ENV REFRESHED_AT 2015-03-19
 
 # Install EPEL to have MySQL packages.
-RUN yum install -y http://dl.fedoraproject.org/pub/epel/6/x86_64/epel-release-6-8.noarch.rpm
+#RUN yum install -y http://dl.fedoraproject.org/pub/epel/6/x86_64/epel-release-6-8.noarch.rpm
+RUN rpm -ivh http://repo.zabbix.com/zabbix/3.0/rhel/7/x86_64/zabbix-release-3.0-1.el7.noarch.rpm
+
 # Install Zabbix release packages.
-RUN yum install -y http://repo.zabbix.com/zabbix/2.4/rhel/6/x86_64/zabbix-release-2.4-1.el6.noarch.rpm
+#RUN yum install -y http://repo.zabbix.com/zabbix/2.4/rhel/6/x86_64/zabbix-release-2.4-1.el6.noarch.rpm
+#RUN yum install zabbix-server-mysql zabbix-web-mysql zabbix-agent
+
 # Refresh
 RUN yum makecache
 # Installing Tools.
@@ -29,9 +33,9 @@ RUN yum -y -q install \
               net-snmp-utils
 
 # Install Lamp Stack, including PHP5 SNMP
-RUN yum -y -q install \
-              mysql \
-              mysql-server
+#RUN yum -y -q install \
+#              mysql \
+#              mysql-server
 
 # Install Apache and PHP5 with ldap support
 RUN yum -y -q install \
