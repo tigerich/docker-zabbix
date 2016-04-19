@@ -14,6 +14,11 @@ RUN rpm -ivh http://repo.zabbix.com/zabbix/3.0/rhel/7/x86_64/zabbix-release-3.0-
 
 # Refresh
 RUN yum makecache
+
+# Update System
+RUN yum -y update \
+    && yum -y upgrade
+
 # Installing Tools.
 RUN yum -y -q install \
               monit \
@@ -39,6 +44,7 @@ RUN yum -y -q install \
 
 # Install Apache and PHP5 with ldap support
 RUN yum -y -q install \
+              httpd \
               php \
               php-mysql \
               php-snmp  \
